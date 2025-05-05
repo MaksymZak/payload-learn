@@ -13,11 +13,25 @@ export default async function HomePage() {
   const payload = await getPayload({ config: payloadConfig })
   const { user } = await payload.auth({ headers })
 
+  // Result will be the Header Global.
+  const generalSettings = await payload.findGlobal({
+    slug: 'general-settings', // required
+    depth: 2,
+    user,
+    fallbackLocale: false,
+    overrideAccess: false,
+    showHiddenFields: true,
+  })
+
+  console.log('general-settings', generalSettings)
+
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
     <div className="home">
       <div className="content">
+        <h1>{generalSettings.siteName}</h1>
+        <p>{generalSettings.siteDescription}</p>
         <picture>
           <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
           <Image
