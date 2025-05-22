@@ -18,6 +18,7 @@ export const useGeneralSettings = () => {
   if (context === undefined) {
     throw new Error('useSettings must be used within a SettingsProvider')
   }
+
   const settings = useContext(context)
   if (settings === null) {
     throw new Error('Please provide settings to the SettingsProvider')
