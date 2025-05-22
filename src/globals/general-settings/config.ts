@@ -1,6 +1,11 @@
 import type { GlobalConfig } from 'payload'
+import { afterChangeHook } from './hooks'
 
 const GeneralSettings: GlobalConfig = {
+  slug: 'general-settings',
+  hooks: {
+    afterChange: [afterChangeHook],
+  },
   fields: [
     {
       name: 'siteName',
@@ -29,8 +34,13 @@ const GeneralSettings: GlobalConfig = {
         description: 'The URL of your site.',
       },
     },
+    {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+      required: true,
+    },
   ],
-  slug: 'general-settings',
 }
 
 export default GeneralSettings

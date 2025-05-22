@@ -293,6 +293,7 @@ export interface GeneralSetting {
    * The URL of your site.
    */
   siteURL: string;
+  logo: string | Media;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -304,6 +305,7 @@ export interface GeneralSettingsSelect<T extends boolean = true> {
   siteName?: T;
   siteDescription?: T;
   siteURL?: T;
+  logo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
