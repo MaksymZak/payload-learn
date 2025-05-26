@@ -1,6 +1,6 @@
 import React from 'react'
 import { GeneralSettingsProvider } from './general-settings-provider'
-import { getCachedGeneralSettings, getGeneralSettings } from '@/globals/general-settings/queries'
+import { getCachedGeneralSettings } from '@/globals/general-settings/queries'
 
 type Props = {
   children: React.ReactNode
