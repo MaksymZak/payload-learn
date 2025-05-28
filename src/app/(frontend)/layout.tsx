@@ -13,9 +13,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <Providers>
       <html lang="en">
-        <body>
-          <main>{children}</main>
-        </body>
+        <body>{children}</body>
       </html>
     </Providers>
   )
